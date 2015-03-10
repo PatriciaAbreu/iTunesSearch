@@ -12,6 +12,8 @@
 
 
 @property (strong, nonatomic) IBOutlet UITableView *tableview;
-
+@property (nonatomic) UITextField *textBuscador;
+@property (nonatomic) UIButton *buttonBuscador;
+@property (nonatomic) NSString *text;
 @end
 

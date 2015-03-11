@@ -10,6 +10,9 @@
 
 @interface iTunesManager : NSObject
 
+@property NSMutableArray *session;
+
+
 /**
  * gets singleton object.
  * @return singleton

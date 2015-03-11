@@ -10,9 +10,13 @@
 #import "TableViewCell.h"
 #import "iTunesManager.h"
 #import "Entidades/Filme.h"
+#import "Entidades/Musica.h"
+#import "Entidades/Podcast.h"
+#import "Entidades/Ebook.h"
 
 @interface TableViewController () {
     NSArray *midias;
+    NSUserDefaults *userDefault;
 }
 
 @end
@@ -27,6 +31,7 @@
     
     UINib *nib = [UINib nibWithNibName:@"TableViewCell" bundle:nil];
     [self.tableview registerNib:nib forCellReuseIdentifier:@"celulaPadrao"];
+    userDefault = [NSUserDefaults standardUserDefaults];
     
     
 
@@ -46,8 +51,34 @@
 
     [self.tableview.tableHeaderView addSubview:textBuscador];
     [self.tableview.tableHeaderView addSubview:buttonBuscador];
+   
+    iTunesManager *itunes = [iTunesManager sharedInstance];
+    NSString *aux = @"Apple";
+    midias = [itunes buscarMidias:aux];
     
+//    if (userDefault == nil) {
+//        
+//    }else{
+//        iTunesManager *itunes = [iTunesManager sharedInstance];
+//        NSString *aux = textBuscador.text;
+//        aux = [aux stringByReplacingOccurrencesOfString:@" " withString:@"+"];
+//    }
     
+//    Mudança de Idioma
+    NSString *idioma = [[NSLocale preferredLanguages] objectAtIndex:0];
+    
+    if ([idioma isEqualToString:@"pt"]){
+        [buttonBuscador setTitle:@"Buscar" forState:UIControlStateNormal];
+        textBuscador.placeholder = @"Digite aqui o que deseja procurar";
+    }
+    if ([idioma isEqualToString:@"en"]){
+        [buttonBuscador setTitle:@"Search" forState:UIControlStateNormal];
+        textBuscador.placeholder = @"Type here what you want to search";
+    }
+    if ([idioma isEqualToString:@"fr"]){
+        [buttonBuscador setTitle:@"Recherche" forState:UIControlStateNormal];
+        textBuscador.placeholder = @"Tapez ici ce que vous voulez rechercher";
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -58,28 +89,81 @@
 
 #pragma mark - Metodos do UITableViewDataSource
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
+    return [midias count];
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [midias count];
+    return [[midias objectAtIndex:section]count];
+}
+
+-(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
+    switch (section) {
+        case 0:
+            return @"Filme";
+            break;
+        case 1:
+            return @"Musica";
+            break;
+        case 2:
+            return @"Podcast";
+            break;
+        case 3:
+            return @"Ebook";
+            break;
+        default:
+            return nil;
+            break;
+    }
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     TableViewCell *celula = [self.tableview dequeueReusableCellWithIdentifier:@"celulaPadrao"];
+
+    Filme *filme;
+    Musica *musica;
+    Podcast *podcast;
+    Ebook *eBook;
     
-    Filme *filme = [midias objectAtIndex:indexPath.row];
-    
-    [celula.nome setText:filme.nome];
-    [celula.tipo setText:@"Filme"];
-    [celula.artista setText:filme.artista];
-    
-    return celula;
+    switch (indexPath.section) {
+        case 0:
+            filme =[midias objectAtIndex:indexPath.row];
+            [celula.nome setText:filme.nome];
+            [celula.tipo setText:@"Filme"];
+            [celula.artista setText:filme.artista];
+            return celula;
+            break;
+         case 1:
+            musica = [midias objectAtIndex:indexPath.row];
+            [celula.nome setText:musica.nome];
+            [celula.tipo setText:@"Musica"];
+            [celula.artista setText:musica.artista];
+            return celula;
+            break;
+        case 2:
+            podcast = [midias objectAtIndex:indexPath.row];
+            [celula.nome setText:podcast.nome];
+            [celula.tipo setText:@"Podcast"];
+            [celula.artista setText:podcast.artista];
+            return celula;
+            break;
+        case 3:
+            eBook = [midias objectAtIndex:indexPath.row];
+            [celula.nome setText:eBook.nome];
+            [celula.tipo setText:@"eBook"];
+            [celula.artista setText:eBook.autor];
+            return celula;
+            break;
+        default:
+            return nil;
+            break;
+    }
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 70;
 }
+
+#pragma mark - Metodo do botão buscador
 
 -(IBAction)buttonBuscador:(id)sender{
     iTunesManager *itunes = [iTunesManager sharedInstance];
@@ -87,7 +171,12 @@
     _text = [_text stringByReplacingOccurrencesOfString:@" " withString:@"+"];
     midias = [itunes buscarMidias:_text];
     
-    [_tableview reloadData];
+    [userDefault setObject:@"TextToSave" forKey:@"keyToLookupString"];
     
+    [_tableview reloadData];
+    [textBuscador resignFirstResponder];
 }
+
+
+
 @end

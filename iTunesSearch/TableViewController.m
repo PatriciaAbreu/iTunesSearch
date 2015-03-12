@@ -17,6 +17,7 @@
 @interface TableViewController () {
     NSArray *midias;
     NSUserDefaults *userDefault;
+    NSArray *midias2;
 }
 
 @end
@@ -32,7 +33,8 @@
     UINib *nib = [UINib nibWithNibName:@"TableViewCell" bundle:nil];
     [self.tableview registerNib:nib forCellReuseIdentifier:@"celulaPadrao"];
     userDefault = [NSUserDefaults standardUserDefaults];
-    
+    _tableview.delegate = self;
+    _tableview.dataSource = self;
     
 
 #warning Necessario para que a table view tenha um espaco em relacao ao topo, pois caso contrario o texto ficara atras da barra superior
@@ -52,12 +54,11 @@
     [self.tableview.tableHeaderView addSubview:textBuscador];
     [self.tableview.tableHeaderView addSubview:buttonBuscador];
    
-    iTunesManager *itunes = [iTunesManager sharedInstance];
-    NSString *aux = @"Apple";
-    midias = [itunes buscarMidias:aux];
+
+    //    if (userDefault == nil) {
+    iTunesManager *iTunes = [iTunesManager sharedInstance];
+    midias = [iTunes buscarMidias:@"Apple"];
     
-//    if (userDefault == nil) {
-//        
 //    }else{
 //        iTunesManager *itunes = [iTunesManager sharedInstance];
 //        NSString *aux = textBuscador.text;
@@ -124,30 +125,32 @@
     Podcast *podcast;
     Ebook *eBook;
     
+//    midias2 = [[NSArray alloc] initWithArray:[midias objectAtIndex:indexPath.section]];
+    
     switch (indexPath.section) {
         case 0:
-            filme =[midias objectAtIndex:indexPath.row];
+            filme =[[midias objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
             [celula.nome setText:filme.nome];
             [celula.tipo setText:@"Filme"];
             [celula.artista setText:filme.artista];
             return celula;
             break;
          case 1:
-            musica = [midias objectAtIndex:indexPath.row];
+            musica = [[midias objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
             [celula.nome setText:musica.nome];
             [celula.tipo setText:@"Musica"];
             [celula.artista setText:musica.artista];
             return celula;
             break;
         case 2:
-            podcast = [midias objectAtIndex:indexPath.row];
+            podcast = [[midias objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
             [celula.nome setText:podcast.nome];
             [celula.tipo setText:@"Podcast"];
             [celula.artista setText:podcast.artista];
             return celula;
             break;
         case 3:
-            eBook = [midias objectAtIndex:indexPath.row];
+            eBook = [[midias objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
             [celula.nome setText:eBook.nome];
             [celula.tipo setText:@"eBook"];
             [celula.artista setText:eBook.autor];

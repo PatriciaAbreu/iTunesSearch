@@ -7,9 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4D951D611AB0C077002A41D8 /* Musica.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D951D601AB0C077002A41D8 /* Musica.m */; };
-		4D951D641AB0C11C002A41D8 /* Podcast.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D951D631AB0C11C002A41D8 /* Podcast.m */; };
-		4D951D671AB0C151002A41D8 /* Ebook.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D951D661AB0C151002A41D8 /* Ebook.m */; };
+		4D4694431AB2E71200AD029E /* Entidade.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D4694421AB2E71200AD029E /* Entidade.m */; };
+		4D4694461AB2E87300AD029E /* Filme.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D4694451AB2E87300AD029E /* Filme.m */; };
+		4D4694491AB2E8A000AD029E /* Musica.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D4694481AB2E8A000AD029E /* Musica.m */; };
+		4D46944C1AB2E8C100AD029E /* Podcast.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D46944B1AB2E8C100AD029E /* Podcast.m */; };
+		4D46944F1AB2E8E500AD029E /* Ebook.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D46944E1AB2E8E500AD029E /* Ebook.m */; };
 		92C21CB61AAE757A0052ABE6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 92C21CB51AAE757A0052ABE6 /* main.m */; };
 		92C21CB91AAE757A0052ABE6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 92C21CB81AAE757A0052ABE6 /* AppDelegate.m */; };
 		92C21CBC1AAE757A0052ABE6 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92C21CBB1AAE757A0052ABE6 /* TableViewController.m */; };
@@ -19,7 +21,6 @@
 		92C21CDD1AAE75DC0052ABE6 /* TableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92C21CDC1AAE75DC0052ABE6 /* TableView.xib */; };
 		92C21CE11AAE76930052ABE6 /* TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 92C21CDF1AAE76930052ABE6 /* TableViewCell.m */; };
 		92C21CE21AAE76930052ABE6 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92C21CE01AAE76930052ABE6 /* TableViewCell.xib */; };
-		92C21CE81AAE858E0052ABE6 /* Filme.m in Sources */ = {isa = PBXBuildFile; fileRef = 92C21CE71AAE858E0052ABE6 /* Filme.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,12 +34,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		4D951D5F1AB0C077002A41D8 /* Musica.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Musica.h; path = Entidades/Musica.h; sourceTree = "<group>"; };
-		4D951D601AB0C077002A41D8 /* Musica.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Musica.m; path = Entidades/Musica.m; sourceTree = "<group>"; };
-		4D951D621AB0C11C002A41D8 /* Podcast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Podcast.h; path = Entidades/Podcast.h; sourceTree = "<group>"; };
-		4D951D631AB0C11C002A41D8 /* Podcast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Podcast.m; path = Entidades/Podcast.m; sourceTree = "<group>"; };
-		4D951D651AB0C151002A41D8 /* Ebook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Ebook.h; path = Entidades/Ebook.h; sourceTree = "<group>"; };
-		4D951D661AB0C151002A41D8 /* Ebook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Ebook.m; path = Entidades/Ebook.m; sourceTree = "<group>"; };
+		4D4694411AB2E71200AD029E /* Entidade.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Entidade.h; path = Entidades/Entidade.h; sourceTree = "<group>"; };
+		4D4694421AB2E71200AD029E /* Entidade.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Entidade.m; path = Entidades/Entidade.m; sourceTree = "<group>"; };
+		4D4694441AB2E87300AD029E /* Filme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Filme.h; path = Entidades/Filme.h; sourceTree = "<group>"; };
+		4D4694451AB2E87300AD029E /* Filme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Filme.m; path = Entidades/Filme.m; sourceTree = "<group>"; };
+		4D4694471AB2E8A000AD029E /* Musica.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Musica.h; path = Entidades/Musica.h; sourceTree = "<group>"; };
+		4D4694481AB2E8A000AD029E /* Musica.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Musica.m; path = Entidades/Musica.m; sourceTree = "<group>"; };
+		4D46944A1AB2E8C100AD029E /* Podcast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Podcast.h; path = Entidades/Podcast.h; sourceTree = "<group>"; };
+		4D46944B1AB2E8C100AD029E /* Podcast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Podcast.m; path = Entidades/Podcast.m; sourceTree = "<group>"; };
+		4D46944D1AB2E8E500AD029E /* Ebook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Ebook.h; path = Entidades/Ebook.h; sourceTree = "<group>"; };
+		4D46944E1AB2E8E500AD029E /* Ebook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Ebook.m; path = Entidades/Ebook.m; sourceTree = "<group>"; };
 		92C21CB01AAE757A0052ABE6 /* iTunesSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iTunesSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		92C21CB41AAE757A0052ABE6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		92C21CB51AAE757A0052ABE6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -56,8 +61,6 @@
 		92C21CDE1AAE76930052ABE6 /* TableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewCell.h; sourceTree = "<group>"; };
 		92C21CDF1AAE76930052ABE6 /* TableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewCell.m; sourceTree = "<group>"; };
 		92C21CE01AAE76930052ABE6 /* TableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
-		92C21CE61AAE858E0052ABE6 /* Filme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Filme.h; path = Entidades/Filme.h; sourceTree = "<group>"; };
-		92C21CE71AAE858E0052ABE6 /* Filme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Filme.m; path = Entidades/Filme.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,14 +156,16 @@
 		92C21CE91AAE859A0052ABE6 /* Entidades */ = {
 			isa = PBXGroup;
 			children = (
-				92C21CE61AAE858E0052ABE6 /* Filme.h */,
-				92C21CE71AAE858E0052ABE6 /* Filme.m */,
-				4D951D5F1AB0C077002A41D8 /* Musica.h */,
-				4D951D601AB0C077002A41D8 /* Musica.m */,
-				4D951D621AB0C11C002A41D8 /* Podcast.h */,
-				4D951D631AB0C11C002A41D8 /* Podcast.m */,
-				4D951D651AB0C151002A41D8 /* Ebook.h */,
-				4D951D661AB0C151002A41D8 /* Ebook.m */,
+				4D4694411AB2E71200AD029E /* Entidade.h */,
+				4D4694421AB2E71200AD029E /* Entidade.m */,
+				4D4694441AB2E87300AD029E /* Filme.h */,
+				4D4694451AB2E87300AD029E /* Filme.m */,
+				4D4694471AB2E8A000AD029E /* Musica.h */,
+				4D4694481AB2E8A000AD029E /* Musica.m */,
+				4D46944A1AB2E8C100AD029E /* Podcast.h */,
+				4D46944B1AB2E8C100AD029E /* Podcast.m */,
+				4D46944D1AB2E8E500AD029E /* Ebook.h */,
+				4D46944E1AB2E8E500AD029E /* Ebook.m */,
 			);
 			name = Entidades;
 			sourceTree = "<group>";
@@ -265,13 +270,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4D951D671AB0C151002A41D8 /* Ebook.m in Sources */,
+				4D46944F1AB2E8E500AD029E /* Ebook.m in Sources */,
+				4D46944C1AB2E8C100AD029E /* Podcast.m in Sources */,
+				4D4694491AB2E8A000AD029E /* Musica.m in Sources */,
 				92C21CBC1AAE757A0052ABE6 /* TableViewController.m in Sources */,
-				4D951D611AB0C077002A41D8 /* Musica.m in Sources */,
-				4D951D641AB0C11C002A41D8 /* Podcast.m in Sources */,
+				4D4694431AB2E71200AD029E /* Entidade.m in Sources */,
+				4D4694461AB2E87300AD029E /* Filme.m in Sources */,
 				92C21CDB1AAE75B30052ABE6 /* iTunesManager.m in Sources */,
 				92C21CB91AAE757A0052ABE6 /* AppDelegate.m in Sources */,
-				92C21CE81AAE858E0052ABE6 /* Filme.m in Sources */,
 				92C21CE11AAE76930052ABE6 /* TableViewCell.m in Sources */,
 				92C21CB61AAE757A0052ABE6 /* main.m in Sources */,
 			);

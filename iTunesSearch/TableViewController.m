@@ -13,11 +13,11 @@
 #import "Entidades/Musica.h"
 #import "Entidades/Podcast.h"
 #import "Entidades/Ebook.h"
+#import "Entidade.h"
 
 @interface TableViewController () {
     NSArray *midias;
     NSUserDefaults *userDefault;
-    NSArray *midias2;
 }
 
 @end
@@ -55,15 +55,15 @@
     [self.tableview.tableHeaderView addSubview:buttonBuscador];
    
 
-    //    if (userDefault == nil) {
+        if (userDefault == nil) {
     iTunesManager *iTunes = [iTunesManager sharedInstance];
     midias = [iTunes buscarMidias:@"Apple"];
     
-//    }else{
-//        iTunesManager *itunes = [iTunesManager sharedInstance];
-//        NSString *aux = textBuscador.text;
-//        aux = [aux stringByReplacingOccurrencesOfString:@" " withString:@"+"];
-//    }
+    }else{
+        iTunesManager *itunes = [iTunesManager sharedInstance];
+        NSString *aux = textBuscador.text;
+        aux = [aux stringByReplacingOccurrencesOfString:@" " withString:@"+"];
+    }
     
 //    Mudança de Idioma
     NSString *idioma = [[NSLocale preferredLanguages] objectAtIndex:0];
@@ -125,35 +125,43 @@
     Podcast *podcast;
     Ebook *eBook;
     
-//    midias2 = [[NSArray alloc] initWithArray:[midias objectAtIndex:indexPath.section]];
+    Entidade *entidade;
     
     switch (indexPath.section) {
         case 0:
-            filme =[[midias objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
-            [celula.nome setText:filme.nome];
+            entidade = [[Filme alloc] init];
+            entidade =[[midias objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
+            [celula.nome setText:entidade.nome];
             [celula.tipo setText:@"Filme"];
-            [celula.artista setText:filme.artista];
+            [celula.artista setText:entidade.artista];
+            [celula.imagem setImage:[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:entidade.imagem]]]];
             return celula;
             break;
          case 1:
-            musica = [[midias objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
-            [celula.nome setText:musica.nome];
+            entidade = [[Musica alloc] init];
+            entidade = [[midias objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
+            [celula.nome setText:entidade.nome];
             [celula.tipo setText:@"Musica"];
-            [celula.artista setText:musica.artista];
+            [celula.artista setText:entidade.artista];
+            [celula.imagem setImage:[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:entidade.imagem]]]];
             return celula;
             break;
         case 2:
-            podcast = [[midias objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
-            [celula.nome setText:podcast.nome];
+            entidade = [[Podcast alloc] init];
+            entidade = [[midias objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
+            [celula.nome setText:entidade.nome];
             [celula.tipo setText:@"Podcast"];
-            [celula.artista setText:podcast.artista];
+            [celula.artista setText:entidade.artista];
+            [celula.imagem setImage:[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:entidade.imagem]]]];
             return celula;
             break;
         case 3:
-            eBook = [[midias objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
-            [celula.nome setText:eBook.nome];
+            entidade = [[Ebook alloc] init];
+            entidade = [[midias objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
+            [celula.nome setText:entidade.nome];
             [celula.tipo setText:@"eBook"];
-            [celula.artista setText:eBook.autor];
+            [celula.artista setText:entidade.artista];
+            [celula.imagem setImage:[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:entidade.imagem]]]];
             return celula;
             break;
         default:
